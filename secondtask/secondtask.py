@@ -71,7 +71,14 @@ Leap_Year()
 def Valid_Year():
     day,month,year = input("Enter day, month, year").split()
     day, month, year = int(day), int(month), int(year)
-    valid_date = (month <= 12 and month > 0) and (year > 0) and (((month in (1,3,5,7,8,10,12)) and ((day <= 31) and (day > 0))) or ((month in (4,6,9,11)) and ((day <= 30) and (day > 0))) or ((month == 2) and (((day <= 29) and (day > 0) and (((year % 4 == 0) and not (year % 100 == 0)) or (year % 400 == 0)) ) or ((day <= 28) and (day > 0) and not (((year % 4 == 0) and not (year % 100 == 0)) or (year % 400 == 0)) ) )))
+    month_valid = (month <= 12 and month > 0)
+    year_valid  = (year > 0)
+    longmonth_valid = ((month in (1,3,5,7,8,10,12)) and ((day <= 31) and (day > 0)))
+    shortmonth_valid = ((month in (4,6,9,11)) and ((day <= 30) and (day > 0)))
+    long_year = ((year % 4 == 0) and not (year % 100 == 0)) or (year % 400 == 0)
+    long_feb_valid = (month == 2) and (day <= 29) and (day > 0) and long_year
+    short_feb_valid = (month == 2) and (day <= 28) and (day > 0) and not long_year
+    valid_date =  month_valid and year_valid and (longmonth_valid or shortmonth_valid or long_feb_valid or short_feb_valid)
     return print (f"Date valid : {valid_date}")
 
 Valid_Year()
