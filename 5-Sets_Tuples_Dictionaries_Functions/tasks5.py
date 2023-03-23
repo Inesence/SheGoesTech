@@ -33,6 +33,7 @@ def Palindrome(text: str):
     for i in range(0,half_text_length):
             if text[i] != text[-(i+1)]:
                 palindrome = False
+                break
             else: 
                 palindrome = True
         
