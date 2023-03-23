@@ -67,9 +67,10 @@ def Sorting(my_list):
     Ordered = False
     
     # compare elements next to each other, swap them if they are not in order
-    while Ordered == False:   
+    while Ordered == False:
         for a in my_list:
             index = my_list.index(a)
+            print(index)
             if index<len(my_list)-1 and (str(my_list[index]) > str(my_list[index+1])):
                     my_list[index] = my_list[index+1]
                     my_list[index+1] = a
@@ -78,5 +79,5 @@ def Sorting(my_list):
     
     
     
-my_list = ['Zorro', 'clean', 'Apple', 'apple', 1, 222, 3]
+my_list = ['Zorro', 'clean', 'Apple', 'apple', 1 , 42, 396, '+', 'sakura', 'sakurA' ]
 Sorting(my_list)
